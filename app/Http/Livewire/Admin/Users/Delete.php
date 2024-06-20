@@ -17,14 +17,18 @@ class Delete extends Component
 
     public function DeleteUser()
     {
+        if ($this->user->hasRole('admin')) {
+            $this->dispatchBrowserEvent('alert', ['type' => 'error', 'message' => '!!لا يمكنك حذف مستخدم مسؤول']);
+            $this->emit('hideModal', 'DeleteUser');
+        } else {
             $this->user->delete();
             $this->emit('hideModal', 'DeleteUser');
             $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message' => 'تم حذف المستخدم بنجاح.']);
-            $this->emit('refreshID');
-
-
+        }
+        $this->emit('refreshID');
     }
-    public function refreshID(){
+    public function refreshID()
+    {
         $this->emit('refreshID');
     }
     public function render()

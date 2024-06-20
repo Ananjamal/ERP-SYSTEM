@@ -15,6 +15,10 @@
                     <td style="border: 1px solid #dee2e6;">{{ $email }}</td>
                 </tr>
                 <tr>
+                    <th colspan="2" style="background-color: #f8f9fa; border: 1px solid #dee2e6; text-align: center;">
+                        أدوار المستخدم</th>
+                </tr>
+                <tr>
                     <td style="font-weight: bold; border: 1px solid #dee2e6;">الأدوار الحالية:</td>
                     <td style="border: 1px solid #dee2e6;">
                         @if (!$UserRoles || $UserRoles->isEmpty())
@@ -71,6 +75,10 @@
                             @enderror
                         </div>
                     </td>
+                </tr>
+                <tr>
+                    <th colspan="2" style="background-color: #f8f9fa; border: 1px solid #dee2e6; text-align: center;">
+                        صلاحيات المستخدم</th>
                 </tr>
                 <tr>
                     <td style="font-weight: bold; border: 1px solid #dee2e6;">الصلاحيات الحالية:</td>
