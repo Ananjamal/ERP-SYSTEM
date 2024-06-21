@@ -166,25 +166,29 @@
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
-                <li class="header">القائمة الرئيسية</li>
+                <li class="header">
+                    <a href="{{ route('dashboard') }}">
+                        القائمة الرئيسية
+                    </a>
+                </li>
                 <li>
                     <a wire:click='users'>
-                        <i class="fa fa-th"></i> <span>المستخدمين</span>
+                        <i class="fa fa-users text-aqua"></i> <span>المستخدمين</span>
                         {{-- <small class="label pull-left bg-green">new</small> --}}
                     </a>
                 </li>
                 <li class=" treeview">
                     <a>
-                        <i class="fa fa-dashboard"></i> <span>الاذونات والصلاحيات</span> <i
-                            class="fa fa-angle-left pull-left"></i>
+                        <i class="fa fa-fw fa-gears text-aqua"></i> <span>الاذونات والصلاحيات</span> <i
+                            class="fa fa-angle-left pull-left "></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li ><a wire:click='roles'><i class="fa fa-circle-o"></i> الاذونات</a>
+                        <li><a wire:click='roles'><i class="fa fa-circle-o"></i> الاذونات</a>
                         </li>
                         <li><a wire:click='permissions'><i class="fa fa-circle-o"></i>الصلاحيات</a></li>
                     </ul>
                 </li>
-               </ul>
+            </ul>
         </section>
         <!-- /.sidebar -->
     </aside>

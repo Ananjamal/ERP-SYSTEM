@@ -389,14 +389,14 @@
                             </a>
                             <ul class="dropdown-menu" >
                                 <!-- User image -->
-                                <li class="user-header">
+                                <li class="user-header"  style="height: 150px">
                                     <img src="{{ asset('dashboard/dist/img/user2-160x160.jpg') }}" class="img-circle"
                                         alt="User Image">
                                     <p>
                                         {{ $username }}
                                         {{-- <small>Member since Nov. 2012</small> --}}
                                     </p>
-                                    <li class="user-footer" style="background-color: #3c8dbc">
+                                    <li class="user-footer" style="background-color: #3c8dbc ; height: 150px">
                                         <div class="pull-right">
                                             <a href=" {{ route('profile.edit') }}"
                                                 class="btn btn-default btn-flat">Profile</a>
