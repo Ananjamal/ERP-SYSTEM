@@ -29,7 +29,10 @@ class Create extends Component
         'salary' => 'nullable|numeric',
         'hire_date' => 'nullable|date',
     ];
-
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
     public function save()
     {
         $this->validate();
