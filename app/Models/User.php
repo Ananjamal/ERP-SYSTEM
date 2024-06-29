@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Account;
+use App\Models\UserTransaction;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -11,28 +13,32 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable,HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $fillable = ['name', 'email', 'password', 'role', 'phone', 'address', 'position', 'salary', 'hire_date'];
 
+    public function accounts()
+    {
+        return $this->hasMany(Account::class);
+    }
+
+    public function userTransactions()
+    {
+        return $this->hasMany(UserTransaction::class);
+    }
+
+  
     /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    protected $hidden = ['password', 'remember_token'];
 
     /**
      * The attributes that should be cast.

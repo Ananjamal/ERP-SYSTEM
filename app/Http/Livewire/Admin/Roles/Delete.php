@@ -21,8 +21,6 @@ class Delete extends Component
             $this->emit('hideModal', 'DeleteRole');
             $this->dispatchBrowserEvent('alert', ['type' => 'success', 'message' => 'تم حذف الدور بنجاح.']);
             $this->emit('refreshID');
-
-
     }
     public function refreshID(){
         $this->emit('refreshID');

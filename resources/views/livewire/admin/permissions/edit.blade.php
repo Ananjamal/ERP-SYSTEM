@@ -2,72 +2,49 @@
     <div class="table-responsive">
         <table class="table">
             <tbody>
+                <td style="font-weight: bold; border: 1px solid #dee2e6;" data-ar="الاسم:" data-en="Name">Name:</td>
+                <td style="border: 1px solid #dee2e6;">
+                    <input wire:model="name" type="text" class="form-control">
+                    @error('name')
+                        <span style="color: red" class="error">{{ $message }}</span>
+                    @enderror
+                </td>
+
+
+
+
                 <tr>
-                    <td style="font-weight: bold; border: 1px solid #dee2e6;">الاسم:</td>
-                    <td style="border: 1px solid #dee2e6;">
-                        <input wire:model="name" type="text" class="form-control">
-                        @error('name')
-                            <span style="color: red" class="error">{{ $message }}</span>
-                        @enderror
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="border: 1px solid #dee2e6;">
-                        <hr>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="font-weight: bold; border: 1px solid #dee2e6;">الأدوار الحالية:</td>
-                    <td style="border: 1px solid #dee2e6;">
+                    <td class="font-weight-bold"><span data-ar="الادوار الحالية:" data-en="Current Roles:">Current
+                            Roles:</span></td>
+                    <td>
                         @if (!$permissionRoles || $permissionRoles->isEmpty())
-                            <p class="text-danger">لا توجد أدوار متاحة</p>
+                            <p class="text-danger" data-ar="لا توجد ادوار متاحة لهذه الصلاحية"
+                                data-en="No Roles available for this user">No Roles available for this user
+                            </p>
                         @else
                             <div class="btn-group" role="group" aria-label="Permissions">
                                 @foreach ($permissionRoles as $item)
-                                    <div class="position-relative d-inline-block mr-2" style="margin-right: 8px;">
-                                        <span type="button" class="btn btn-outline-primary btn-sm"
-                                            style="padding-right: 24px; position: relative;">
-                                            {{ $item->name }}
-                                            <button type="button" wire:click="removeRole('{{ $item->id }}')"
-                                                class="btn btn-danger btn-sm rounded-circle"
-                                                style="
-                                                position: absolute;
-                                                top: 50%;
-                                                right: 0;
-                                                transform: translate(50%, -50%);
-                                                width: 20px;
-                                                height: 20px;
-                                                font-size: 12px;
-                                                display: flex;
-                                                align-items: center;
-                                                justify-content: center;
-                                                border: none;
-                                                background-color: #dc3545;
-                                                color: white;
-                                                cursor: pointer;
-                                                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                                            ">
-                                                &times;
-                                            </button>
-                                        </span>
+                                    <div class="role-item">
+                                        <span class="role-name">{{ $item->name }}</span>
+                                        <button type="button" wire:click="removeRole('{{ $item->id }}')"
+                                            class="remove-button">&times;</button>
                                     </div>
                                 @endforeach
+
                             </div>
                         @endif
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2" style="border: 1px solid #dee2e6;">
-                        <hr>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="font-weight: bold; border: 1px solid #dee2e6;">إعطاء دور للصلاحية:</td>
-                    <td style="border: 1px solid #dee2e6;">
-                        <div class="form-group mb-0">
-                            <select id="permissionsSelect" class="form-select form-select-sm" wire:model="selectedRole"
-                                aria-label="اختر دور">
-                                <option selected disabled>اختر من القائمة</option>
+                    <td class="font-weight-bold"><span data-ar="إعطاء دور للصلاحية:"
+                            data-en="Assign Permission to User:">Assign Role to Permission:</span></td>
+                    <td>
+
+                        <div class="form-group">
+                            <select class="form-control" id="exampleFormControlSelect1" wire:model.defer="selectedRole">
+                                <option selected disabled><span data-ar="اخترالدور" data-en="Choose Role">Choose
+                                </option>
+
                                 @foreach ($roles as $role)
                                     <option value="{{ $role->id }}">{{ $role->name }}</option>
                                 @endforeach
@@ -76,13 +53,17 @@
                                 <span style="color: red" class="error">{{ $message }}</span>
                             @enderror
                         </div>
+
                     </td>
                 </tr>
             </tbody>
         </table>
+
     </div>
     <div class="modal-footer">
-        <button type="button" wire:click='refreshID' class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
-        <button type="button" wire:click='Update' class="btn btn-primary">حفظ التغييرات</button>
+        <button type="button" wire:click='refreshID' class="btn outlined o-danger c-danger" data-bs-dismiss="modal"
+            data-ar="اغلاق" data-en="Close">Close</button>
+        <button type="button" wire:click='Update' class="btn outlined f-main" data-ar="حفظ التغييرات"
+            data-en="Save changes">Save changes</button>
     </div>
 </div>

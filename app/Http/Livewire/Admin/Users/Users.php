@@ -23,9 +23,15 @@ class Users extends Component
     }
     public function render()
     {
-        $users = User::all();
+        $admins = User::role('admin')->get();
+        $employees = User::role('employee')->get();
+        $suppliers = User::role('supplier')->get();
+        $users = User::where('role', 'user')->get();
         return view('livewire.admin.users.users',[
-            'users' => $users
-        ]);
+            'users' => $users,
+            'admins' => $admins,
+            'employees' => $employees,
+            'suppliers' => $suppliers,
+        ])->layout('layout.admin.app');
     }
 }

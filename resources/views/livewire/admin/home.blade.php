@@ -1,22 +1,4 @@
-{{-- <div class="container-scroller">
-    @livewire('admin.header')
-    <div class="container-fluid page-body-wrapper ">
-        @livewire('admin.sidebar')
-
-        @if ($users)
-            @livewire('admin.users.users')
-        @elseif ($permissions)
-            @livewire('admin.permissions.permissions')
-        @elseif ($roles)
-            @livewire('admin.roles.roles')
-
-        @else
-            @livewire('admin.main')
-        @endif
-    </div>
-
-
-</div> --}}
+{{--
 <div class="wrapper">
     @livewire('admin.header')
     @livewire('admin.sidebar')
@@ -30,15 +12,7 @@
     @else
         @livewire('admin.main')
     @endif
-    {{-- <footer class="main-footer">
-        <div class="pull-left hidden-xs">
-            <b>Version</b> 2.2.0
-        </div>
-        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-        reserved.
-    </footer> --}}
 
-    <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
         <!-- Create the tabs -->
         <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
@@ -199,7 +173,8 @@
                 </form>
             </div><!-- /.tab-pane -->
         </div>
-    </aside><!-- /.control-sidebar -->
-    <!-- Add the sidebar's background. This div must be placed
-           immediately after the control sidebar -->
-</div>
+    </aside>
+</div> --}}
+
+        @livewire('admin.main')
+ 

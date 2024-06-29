@@ -1,149 +1,8 @@
-{{-- <div=>
-
-    <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav" >
-            <li class="nav-item nav-profile">
-                <a href="#" class="nav-link">
-                    <div class="nav-profile-image">
-                        <img src="{{ asset('DashAssets/images/faces/face1.jpg')}}" alt="profile" />
-                        <span class="login-status online"></span>
-                    </div>
-                    <div class="nav-profile-text d-flex flex-column">
-                        <span class="font-weight-bold mb-2">{{Auth::user()->name}}</span>
-                        <span class="text-secondary text-small">Project Manager</span>
-                    </div>
-                    <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('dashboard')}}">
-                    <span class="menu-title">Dashboard</span>
-                    <i class="mdi mdi-home menu-icon"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" wire:click='users'>
-                    <span class="menu-title">Users</span>
-                    <i class="fa fa-users menu-icon"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
-                    aria-controls="ui-basic">
-                    <span class="menu-title">Roles/Permissions</span>
-                    <i class="menu-arrow"></i>
-                    <i class="fa fa-cogs menu-icon"></i>
-                </a>
-                <div class="collapse" id="ui-basic">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item">
-                            <button class="nav-link"  wire:click='roles'>Roles</button>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"  wire:click='permissions'>Permissions</a>
-                        </li>
-
-                    </ul>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false"
-                    aria-controls="icons">
-                    <span class="menu-title">Icons</span>
-                    <i class="mdi mdi-contacts menu-icon"></i>
-                </a>
-                <div class="collapse" id="icons">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/icons/font-awesome.html">Font Awesome</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#forms" aria-expanded="false"
-                    aria-controls="forms">
-                    <span class="menu-title">Forms</span>
-                    <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-                </a>
-                <div class="collapse" id="forms">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/forms/basic_elements.html">Form Elements</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false"
-                    aria-controls="charts">
-                    <span class="menu-title">Charts</span>
-                    <i class="mdi mdi-chart-bar menu-icon"></i>
-                </a>
-                <div class="collapse" id="charts">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false"
-                    aria-controls="tables">
-                    <span class="menu-title">Tables</span>
-                    <i class="mdi mdi-table-large menu-icon"></i>
-                </a>
-                <div class="collapse" id="tables">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false"
-                    aria-controls="auth">
-                    <span class="menu-title">User Pages</span>
-                    <i class="menu-arrow"></i>
-                    <i class="mdi mdi-lock menu-icon"></i>
-                </a>
-                <div class="collapse" id="auth">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/samples/login.html"> Login </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/samples/register.html"> Register </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/samples/error-404.html"> 404 </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/samples/error-500.html"> 500 </a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="docs/documentation.html" target="_blank">
-                    <span class="menu-title">Documentation</span>
-                    <i class="mdi mdi-file-document-box menu-icon"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</div> --}}
+{{--
 <div>
 
     <aside class="main-sidebar">
-        <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
-            <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-right image">
                     <img src="{{ asset('dashboard/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
@@ -153,7 +12,6 @@
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
-            <!-- search form -->
             <form action="#" method="get" class="sidebar-form">
                 <div class="input-group">
                     <input type="text" name="q" class="form-control" placeholder="البحث ...">
@@ -163,8 +21,6 @@
                     </span>
                 </div>
             </form>
-            <!-- /.search form -->
-            <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
                 <li class="header">
                     <a href="{{ route('dashboard') }}">
@@ -174,7 +30,6 @@
                 <li>
                     <a wire:click='users'>
                         <i class="fa fa-users text-aqua"></i> <span>المستخدمين</span>
-                        {{-- <small class="label pull-left bg-green">new</small> --}}
                     </a>
                 </li>
                 <li class=" treeview">
@@ -190,6 +45,68 @@
                 </li>
             </ul>
         </section>
-        <!-- /.sidebar -->
     </aside>
+</div> --}}
+<div id="dw-s1" class="bmd-layout-drawer bg-faded">
+    <div class="container-fluid side-bar-container">
+        <header class="pb-0">
+            <a href="{{ route('dashboard') }}" class="navbar-brand">
+                <img class="side-logo" src="{{ asset('adminDash/svg/financial-org.svg') }}" type="image/svg+xml"></im>
+            </a>
+        </header>
+        <p class="side-comment" data-ar="لوحة التحكم" data-en="Dashboard"> Dashboard</p>
+        <ul class="side a-collapse short">
+            <a class="ul-text" data-ar="الاذونات والصلاحيات" data-en=" Roles/Permissions"><i
+                    class="mr-2 fa-solid fa-gears"></i> Roles/Permissions
+                <!-- <span	class="badge badge-success">4</span> -->
+                <i class="fas fas fa-chevron-down arrow"></i></a>
+            <div class="side-item-container hide animated">
+                <li class="side-item "><a href="{{ route('roles') }}"><i class=" fas fa-angle-right mr-2"></i><span
+                            class="lang-text" data-ar="الادوار" data-en="Roles"> Roles</span></a></li>
+                <li class="side-item"><a href="{{ route('permissions') }}" wire:click='permissions'><i
+                            class=" fas fa-angle-right mr-2"></i><span class="lang-text" data-ar="الصلاحيات"
+                            data-en="Permissions"> Permissions</span></a></li>
+
+            </div>
+        </ul>
+        <li class="side a-collapse short">
+            <a href="{{ route('users') }}" class="side-item"><i class="mr-2 fa-solid fa-users"></i><span
+                    class="lang-text" data-ar="المستخدمين" data-en="Users"> Users</span></a>
+        </li>
+        <li class="side a-collapse short">
+            <a href="{{ route('accounts') }}" class="side-item"><i
+                    class="mr-2 fa-solid fa-hand-holding-dollar"></i><span class="lang-text" data-ar="الحسابات"
+                    data-en="Accounts"> Accounts</span></a>
+        </li>
+        <li class="side a-collapse short">
+            <a href="{{ route('salaries') }}" class="side-item"><i class="mr-2 fa-solid fa-sack-dollar"></i><span
+                    class="lang-text" data-ar="الرواتب" data-en="Salaries"> Salaries</span></a>
+        </li>
+
+        <li class="side a-collapse short">
+            <a href="{{ route('invoices') }}" class="side-item"><i
+                    class=" mr-2 fa-solid fa-file-invoice-dollar"></i><span class="lang-text" data-ar="الفواتير"
+                    data-en="Invoices"> Invoices</span></a>
+        </li>
+        <li class="side a-collapse short">
+            <a href="{{ route('inventory') }}" class="side-item"><i class="mr-2 fa-solid fa-warehouse"></i><span
+                    class="lang-text" data-ar="المخزون" data-en="Inventory"> Inventory</span></a>
+        </li>
+        <li class="side a-collapse short">
+            <a href="{{ route('transactions') }}" class="side-item"><i class="mr-2 fa fa-exchange"></i><span
+                    class="lang-text" data-ar="المعاملات" data-en="Transactions"> Transactions</span></a>
+        </li>
+        <li class="side a-collapse short">
+            <a href="{{ route('JournalEntries') }}" class="side-item"><i
+                    class="mr-2 fa-solid fa-book-journal-whills"></i><span class="lang-text" data-ar="القيود المحاسبية"
+                    data-en="Journal Entries "> Journal Entries </span></a>
+        </li>
+        <li class="side a-collapse short">
+            <a href="{{ route('expenses') }}" class="side-item"><i class="mr-2 fa-solid fa-money-bill"></i><span
+                    class="lang-text" data-ar="المصاريف" data-en="Expenses "> Expenses</span></a>
+        </li>
+        <!-- Rest of the sidebar menu items with data-ar and data-en attributes -->
+
+
+    </div>
 </div>

@@ -1,64 +1,9 @@
-{{-- <div>
-    <div class="card-box">
-        <div class="form-group">
-            <label>Name:</label>
-            <input wire:model="name" type="text" class="form-control">
-            @error('name')
-                <span style="color: red" class="error">{{ $message }}</span>
-            @enderror
-        </div>
-        <hr>
-        <div class="form-group">
-            <label class="form-label">Current Permissions:</label><br>
-            @if (!$rolePermissions || $rolePermissions->isEmpty())
-                <p class="text-danger">No permissions available</p>
-            @else
-                <div class="btn-group" role="group" aria-label="Permissions">
-                    @foreach ($rolePermissions as $item)
-                        <div class="position-relative d-inline-block mr-2">
-                            <span type="button" class="btn btn-outline-primary btn-sm">{{ $item->name }}</span>
-                            <button type="button" wire:click="removePermission('{{ $item->id }}')"
-                                class="position-absolute top-0 start-100 translate-middle btn btn-danger btn-sm p-0 rounded-circle"
-                                style="width: 20px; height: 20px; font-size: 10px;">
-                                &times;
-                            </button>
-                        </div>
-                    @endforeach
-                </div>
-            @endif
-        </div>
-        <hr>
-        <div class="form-group">
-            <label for="permissionsSelect" class="form-label">Give Permission To Role:</label>
-            <div class="input-group mb-3">
-                <select id="permissionsSelect" class="form-select form-select-sm" wire:model="selectedPermission"
-                    aria-label="Small select example">
-                    <option selected disabled>Open this select menu</option>
-                    @foreach ($permissions as $permission)
-                        <option value="{{ $permission->id }}">{{ $permission->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-            @error('selectedPermission')
-                <span style="color: red" class="error">{{ $message }}</span>
-            @enderror
-        </div>
-        <div class="modal-footer">
-            <button type="button" wire:click="refreshID" class="btn btn-secondary"
-                data-bs-dismiss="modal">Close</button>
-            <button type="button" wire:click="Update" class="btn btn-primary">Save changes</button>
-        </div>
-    </div>
-</div> --}}
+{{--
 <div class="card-box">
     <div class="table-responsive">
         <table class="table">
             <tbody>
-                {{-- <tr>
-                    <th colspan="2" style="background-color: #f8f9fa; border: 1px solid #dee2e6; text-align: center;">
-                        معلومات الدور
-                    </th>
-                </tr> --}}
+
                 <tr>
                     <td style="font-weight: bold; border: 1px solid #dee2e6;">الاسم:</td>
                     <td style="border: 1px solid #dee2e6;">
@@ -141,5 +86,72 @@
     <div class="modal-footer">
         <button type="button" wire:click="refreshID" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
         <button type="button" wire:click="Update" class="btn btn-primary">حفظ التغييرات</button>
+    </div>
+</div> --}}
+<div class="card-box">
+    <div class="table-responsive">
+        <table class="table">
+            <tbody>
+
+                <td style="font-weight: bold; border: 1px solid #dee2e6;" data-ar="الاسم:"
+                data-en="Name" >Name:</td>
+                <td style="border: 1px solid #dee2e6;">
+                    <input wire:model="name" type="text" class="form-control">
+                    @error('name')
+                        <span style="color: red" class="error">{{ $message }}</span>
+                    @enderror
+                </td>
+                <tr>
+                    <td class="font-weight-bold"><span data-ar="الصلاحيات الحالية:"
+                            data-en="Current Permissions:">Current Permissions:</span></td>
+                    <td>
+                        @if (!$rolePermissions || $rolePermissions->isEmpty())
+                            <p class="text-danger" data-ar="لا توجد صلاحيات متاحة لهذا المستخدم"
+                                data-en="No permissions available for this user">No permissions available for this user
+                            </p>
+                        @else
+                            <div class="btn-group" role="group" aria-label="Permissions">
+                                @foreach ($rolePermissions as $item)
+                                    <div class="role-item">
+                                        <span class="role-name">{{ $item->name }}</span>
+                                        <button type="button" wire:click="removePermission('{{ $item->id }}')"
+                                            class="remove-button">&times;</button>
+                                    </div>
+                                @endforeach
+
+                            </div>
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="font-weight-bold"><span data-ar="إعطاء صلاحية للدور:"
+                            data-en="Assign Permission to User:">Assign Permission to Role:</span></td>
+                    <td>
+
+                        <div class="form-group">
+                            <select class="form-control" id="exampleFormControlSelect1"
+                                wire:model.defer="selectedPermission">
+                                <option selected disabled><span data-ar="اخترالصلاحية"
+                                        data-en="Choose Permission">Choose</option>
+                                @foreach ($permissions as $permission)
+                                    <option value="{{ $permission->id }}">{{ $permission->name }}</option>
+                                @endforeach
+                            </select>
+                            @error('selectedPermission')
+                                <span style="color: red" class="error">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" wire:click='refreshID' class="btn outlined o-danger c-danger" data-bs-dismiss="modal"
+            data-ar="اغلاق" data-en="Close">Close</button>
+        <button type="button" wire:click='Update' class="btn outlined f-main" data-ar="حفظ التغييرات"
+            data-en="Save changes">Save changes</button>
     </div>
 </div>

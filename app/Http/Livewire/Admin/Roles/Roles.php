@@ -31,6 +31,6 @@ class Roles extends Component
         $roles = Role::all();
         return view('livewire.admin.roles.roles',[
             'roles' => $roles,
-        ]);
+        ])->layout('layout.admin.app');
     }
 }

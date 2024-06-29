@@ -42,6 +42,6 @@ class Permissions extends Component
 
         return view('livewire.admin.permissions.permissions', [
             'permissions' => $permissions,
-        ]);
+        ])->layout('layout.admin.app');
     }
 }

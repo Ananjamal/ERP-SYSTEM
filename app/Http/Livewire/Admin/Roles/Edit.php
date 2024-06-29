@@ -57,7 +57,7 @@ class Edit extends Component
             $permission = Permission::find($this->selectedPermission);
 
             if ($this->role->hasPermissionTo($permission)) {
-                $this->dispatchBrowserEvent('alert', ['type' => 'error', 'message' => 'تم منح الإذن بالفعل لهذا الدور']);
+                $this->dispatchBrowserEvent('alert', ['type' => 'error', 'message' => 'تم منح الصلاحية بالفعل لهذا الدور']);
             } else {
                 $this->role->givePermissionTo($permission);
                 $this->rolePermissions = $this->role->permissions; // Refresh rolePermissions after update
